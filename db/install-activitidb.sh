@@ -22,7 +22,7 @@ export PGPASSWORD=postgres
 fi
 
 # drop database first
-$PSQL -U postgres -h localhost -f activiti-dropdb.sql
+$PSQL -U postgres -h 10.0.3.6 -f activiti-dropdb.sql
 
 # create a role/user and database
-$PSQL -U postgres -h localhost -f activiti-prereq.sql
+$PSQL -U postgres -h 10.0.3.6 -f activiti-prereq.sql
