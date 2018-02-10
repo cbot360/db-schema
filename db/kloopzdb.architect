@@ -9,7 +9,7 @@
   <data-source id="DS2">
    <property key="Connection Type" value="PostgreSQL" />
    <property key="Logical" value="PlayPen Database" />
-   <property key="JDBC URL" value="jdbc:postgresql://localhost:5432/kloopzdb" />
+   <property key="JDBC URL" value="jdbc:postgresql://10.0.3.6:5432/kloopzdb" />
    <property key="UID" value="kloopzcm" />
    <property key="PWD" value="kloopzcm" />
    <property key="ca.sqlpower.architect.etl.kettle.database" value="" />
