@@ -21,10 +21,10 @@ else
 export PGPASSWORD=postgres
 fi
 # drop database first
-$PSQL -U postgres -h localhost -f kloopzcm-dropdb.sql
+$PSQL -U postgres -h kloopzappdb -f kloopzcm-dropdb.sql
 
 # create a role/user and database
-$PSQL -U postgres -h localhost -f kloopzcm-prereq.sql
+$PSQL -U postgres -h kloopzappdb -f kloopzcm-prereq.sql
 
 
 
@@ -36,16 +36,16 @@ export PGPASSWORD=${2-kloopzcm}
 
 
 # create schema in the database
-$PSQL -h localhost -d kloopzdb -v user=${PGUSER} -f kloopzcm-schema.sql
+$PSQL -h kloopzappdb -d kloopzdb -v user=${PGUSER} -f kloopzcm-schema.sql
 
 # create tables in the schema
-$PSQL  -h localhost -d kloopzdb -f kloopzcm-tables.ddl
+$PSQL  -h kloopzappdb -d kloopzdb -f kloopzcm-tables.ddl
 
 # create partition tables in the schema
-$PSQL  -h localhost -d kloopzdb -f kloopzcm-partition.ddl
+$PSQL  -h kloopzappdb -d kloopzdb -f kloopzcm-partition.ddl
 
 # postprocess
-$PSQL  -h localhost -d kloopzdb -v user=${PGUSER} -f kloopzcm-postprocess.sql
+$PSQL  -h kloopzappdb -d kloopzdb -v user=${PGUSER} -f kloopzcm-postprocess.sql
 
 # postprocess
-$PSQL  -h localhost -d kloopzdb -v user=${PGUSER} -f kloopzcm-functions.sql
+$PSQL  -h kloopzappdb -d kloopzdb -v user=${PGUSER} -f kloopzcm-functions.sql
